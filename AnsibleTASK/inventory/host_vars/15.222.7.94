@@ -1,5 +1,0 @@
-node_type: Prod-App
-node_env: Production
-
-packages_to_install:
-  - docker
