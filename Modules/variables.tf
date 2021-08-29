@@ -2,8 +2,8 @@
 variable "ami_id" {}
 variable "instance_type" {}
 variable "key" {}
-# variable "sg_id" {}
-# variable "subnet_id" {}
+variable "sg_id" {}
+variable "subnet_id" {}
 variable "user_data" {}
 variable "name" {}
 variable "environment" {}
