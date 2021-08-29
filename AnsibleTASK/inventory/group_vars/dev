@@ -1,0 +1,5 @@
+node_type: Dev-App
+node_env: Development
+
+packages_to_install:
+  - docker

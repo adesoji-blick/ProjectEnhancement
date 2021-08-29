@@ -1,0 +1,24 @@
+Mini Project Four
+**********************
+Direction App Project
+**********************
+INFRASTRUCTURE BUILD 
+
+To Build AMI with Java 11
+pwd
+~/ ../MiniProjectFour
+cd PackerAMI/
+Packer init .
+Packer build .
+cd ../
+
+To Build ec2 Instances
+terraform init
+terraform plan
+terraform apply --auto-approve
+
+Execute Ansible Tasks
+cd AnsibleTASK/
+sudo yum update [all machines]
+
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory/myhosts playbooks/playbook.yml -C
