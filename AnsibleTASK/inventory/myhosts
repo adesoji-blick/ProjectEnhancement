@@ -1,10 +1,10 @@
 [jenkins]
 172.31.8.201
 
-[Dev]
+[dev]
 172.31.1.195
 
-[Prod]
+[prod]
 172.31.9.116
 
 # [tool-server]
