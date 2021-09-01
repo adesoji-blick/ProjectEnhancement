@@ -9,14 +9,13 @@ terraform {
 }
 
 resource "aws_instance" "tool-server" {
-  ami = data.aws_ami.java-ami.id
-  # ami           = "ami-07625b74039b1a58b"
+  ami             = data.aws_ami.resource-ami.id
   key_name        = var.ssh_key
   instance_type   = var.instance_type
   count           = var.resource_count
-  user_data       = data.template_file.ansible_installation.template
-  security_groups = [aws_security_group.app_sg.id]
+  security_groups = [aws_security_group.tool_sg.id]
   subnet_id       = aws_subnet.app_vpc_subnet[count.index].id
+  user_data       = data.template_file.localpubkey_installation.template
 
   tags = {
     Name        = "${var.resource_tag_name}"
@@ -28,9 +27,9 @@ resource "aws_instance" "tool-server" {
 module "App-Project" {
   source    = "./Modules"
   count     = var.module_instance_count
-  user_data = data.template_file.pubkey_installation.template
-  # ami_id    = "ami-07625b74039b1a58b"
-  ami_id        = data.aws_ami.java-ami.id
+  user_data = data.template_file.localpubkey_installation.template
+  # ami_id      = "ami-07625b74039b1a58b"
+  ami_id        = data.aws_ami.module-ami[count.index].id
   key           = var.ssh_key
   instance_type = var.instance_type
   name          = var.module_tag_name[count.index]

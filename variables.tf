@@ -6,9 +6,14 @@ variable "profile" {
   default = "default"
 }
 
-variable "ami_filter" {
-  default = "packer-java-ami"
-  # default = ["packer-amazon-linux-ami1", "packer-amazon-linux-ami2", "packer-ubuntu-ami"]
+variable "resource_ami_filter" {
+  default = "packer-ansible-ami"
+  # default = ["packer-ansible-ami"]
+}
+
+variable "module_ami_filter" {
+  # default = "packer-java-ami"
+  default = ["packer-jenkins-ami", "packer-jenkins2-ami", "packer-jenkins2-ami"]
 }
 
 variable "ssh_key" {
@@ -24,15 +29,15 @@ variable "resource_count" {
 }
 
 variable "resource_tag_name" {
-  default = "Tool (Ansible) Server"
+  default = "tool (ansible) server"
 }
 
 variable "resource_environment" {
-  default = "Project Env"
+  default = "project env"
 }
 
 variable "resource_role" {
-  default = "Devops-user"
+  default = "devops-user"
 }
 
 variable "module_instance_count" {
@@ -40,19 +45,23 @@ variable "module_instance_count" {
 }
 
 variable "module_tag_name" {
-  default = ["Jenkins server", "Dev-App server", "Prod-App server"]
+  default = ["jenkins server", "dev-app server", "prod-app server"]
 }
 
 variable "module_environment" {
-  default = ["Project Env", "Development Env", "Production Env"]
+  default = ["project env", "development env", "production env"]
 }
 
 variable "module_role" {
-  default = "Ansible-user"
+  default = "ansible-user"
 }
 
 variable "sg_name" {
-  default = "App Project"
+  default = "app project"
+}
+
+variable "sg2_name" {
+  default = "tool server"
 }
 
 variable "httpport" {

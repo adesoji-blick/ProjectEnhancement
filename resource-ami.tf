@@ -1,12 +1,12 @@
 # Use terraform to query latest generated AMI..
 
-data "aws_ami" "java-ami" {
+data "aws_ami" "resource-ami" {
   # count = 3
 
   filter {
     name   = "tag:Name"
-    values = [var.ami_filter]
-    # values = [var.ami_filter[count.index]]
+    values = [var.resource_ami_filter]
+    # values = [var.resouce_ami_filter[count.index]]
   }
 
   filter {
@@ -17,3 +17,4 @@ data "aws_ami" "java-ami" {
   most_recent = true
   owners      = ["self"]
 }
+
