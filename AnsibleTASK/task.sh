@@ -1,10 +1,7 @@
 #!/bin/bash
 
 #set ansible user
-sudo su - ansible
-
-# download AnsibleTASK files from github
-git clone https://github.com/adesoji-blick/ProjectEnhancement.git
+# sudo su - ansible
 
 # export environment variables
 export AWS_ACCESS_KEY_ID='xxxxxxxx'
@@ -18,12 +15,15 @@ wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 python get-pip.py
 
 # Install Boto
+# pip install boto3
 pip install boto
-pip install boto3
 
-# Run Ansible playbook
+# download AnsibleTASK files from github
+git clone https://github.com/adesoji-blick/ProjectEnhancement.git
+
 cd ProjectEnhancement/AnsibleTASK/
 
+# Run Ansible playbook
 chmod 755 inventory/ec2.py
 chmod 755 inventory/ec2.ini
 
