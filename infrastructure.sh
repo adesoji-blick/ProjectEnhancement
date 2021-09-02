@@ -3,14 +3,14 @@
 # Build relevant AMIs
 cd PackerAMI/
 packer build .
+cd ..
 
 # Build Infrastructure
-cd ..
 terraform init
 terraform apply --auto-approve
 
 # # Run Ansible Task
-# ssh ec2-user@[tool-server-ip]
+# ssh ec2-user@[tool-server-ip] 
 # sudo su - Ansible
 # git clone https://github.com/adesoji-blick/ProjectEnhancement.git
 # cd ProjectEnhancement/AnsibleTASK
