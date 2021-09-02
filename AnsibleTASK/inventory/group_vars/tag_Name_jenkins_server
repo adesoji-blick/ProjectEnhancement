@@ -5,3 +5,4 @@ packages_to_install:
   - docker
   - git
   - maven
+  - ansible

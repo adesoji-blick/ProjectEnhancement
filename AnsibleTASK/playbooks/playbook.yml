@@ -31,9 +31,30 @@
 - hosts: tag_Name_jenkins_server
   become: True
   tasks:
+
+- hosts: tag_Name_jenkins_server
+  become: True
+  tasks:
     - name: install jenkins
       ansible.builtin.command:
         cmd: docker run -d -p 8080:8080 -p 50000:50000 --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false" jenkins/jenkins
+        
+    - name: copy jenkinsImage
+      template:
+        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/Dockerfile
+        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/jenkins_plugins.txt
+        dest: /home/ansible/jenkinsImage
+        owner: root
+        group: root
+        mode: '0644'   
+
+    - name: build jenkins image
+      ansible.builtin.command:
+        cmd: sudo su - ansible
+        cmd: cd jenkinsImage
+        cmd: docker build -t jenkins-blickng:latest .
+        cmd: docker run -d -p 8081:8080 -p 50000:50000 jenkins-blickng
+        
 
          
 

@@ -41,6 +41,10 @@ build {
     script = "../Scripts/ansible_client.sh"
   }
 
+  # provisioner "shell" {
+  #   script = "../Scripts/ansible_install.sh"
+  # }
+
   provisioner "shell" {
     script = "../Scripts/java_OpenJDK11.sh"
   }
