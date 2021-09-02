@@ -49,7 +49,7 @@ variable "module_tag_name" {
 }
 
 variable "module_environment" {
-  default = ["project env", "development env", "production env"]
+  default = ["jenkins env", "development env", "production env"]
 }
 
 variable "module_role" {

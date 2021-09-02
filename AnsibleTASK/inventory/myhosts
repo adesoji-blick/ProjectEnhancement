@@ -1,12 +1,8 @@
-[jenkins]
-10.0.0.53
+[tag_Name_jenkins_server]
 
-[dev]
-10.0.1.24
+[tag_Name_dev_app_server]
 
-[prod]
-10.0.2.122
+[tag_Name_prod_app_server]
 
-# [tool-server]
+# [tag_Name_tool__ansible__server]
 # localhost
-# 10.0.0.236

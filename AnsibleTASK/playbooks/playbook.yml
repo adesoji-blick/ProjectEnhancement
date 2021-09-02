@@ -22,7 +22,7 @@
 
     - name: create a welcome message
       template:
-        src: ~/ProjectEnhancement/AnsibleTASK/templates/welcome_msg.j2
+        src: /home/ansible/ProjectEnhancement/AnsibleTASK/templates/welcome_msg.j2
         dest: /etc/profile.d/welcome_msg.sh
         owner: root
         group: root
