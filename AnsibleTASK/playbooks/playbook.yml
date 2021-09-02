@@ -28,7 +28,7 @@
         group: root
         mode: '0644'
 
-- hosts: jenkins
+- hosts: tag_Name_jenkins_server
   become: True
   tasks:
     - name: install jenkins
