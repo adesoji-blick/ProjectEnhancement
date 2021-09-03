@@ -9,9 +9,9 @@ sudo yum -y install curl wget git vim apt-transport-https ca-certificates
 sudo yum -y install golang
 
 # Setup sudo to allow no-password sudo for "ansible" user
-sudo groupadd -r admin
+sudo groupadd -r sudo 
 sudo useradd -m -s /bin/bash ansible
-sudo usermod -a -G admin ansible
+sudo usermod -a -G sudo ansible
 sudo cp /etc/sudoers /etc/sudoers.orig
 echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible
 

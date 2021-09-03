@@ -2,7 +2,7 @@
 
 # Destroy Terraform infrastructure
 echo destroy infrastructure
-terraform destroy --auto-approve
+terraform destroy
 
 # Deregister AMI
 

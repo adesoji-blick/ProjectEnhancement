@@ -9,9 +9,9 @@ sudo yum -y install curl wget git vim apt-transport-https ca-certificates
 sudo yum -y install golang
 
 # Setup sudo to allow no-password sudo for "jenkins" user
-sudo groupadd -r admin
+sudo groupadd -r sudo
 sudo useradd -m -s /bin/bash jenkins
-sudo usermod -a -G admin jenkins
+sudo usermod -a -G sudo jenkins
 sudo cp /etc/sudoers /etc/sudoers.orig
 echo "jenkins ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/jenkins
 
