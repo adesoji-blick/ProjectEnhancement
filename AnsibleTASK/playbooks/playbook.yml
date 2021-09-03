@@ -51,7 +51,7 @@
       ansible.builtin.command:
         cmd: docker build -t jenkins-blickng:latest .
 
-    - name: build jenkins image
+    - name: run jenkins image
       ansible.builtin.command:
         cmd: docker run -d -p 8080:8080 jenkins-blickng
 
