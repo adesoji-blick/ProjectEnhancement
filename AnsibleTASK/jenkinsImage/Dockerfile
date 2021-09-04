@@ -10,8 +10,3 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 COPY jenkins_plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
-USER root
-RUN apk add docker
-RUN apk add py-pip
-
-USER jenkins
