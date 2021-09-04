@@ -1,5 +1,5 @@
 node_type: Jenkins
-node_env: Project
+node_env: Jenkins
 
 packages_to_install:
   - docker

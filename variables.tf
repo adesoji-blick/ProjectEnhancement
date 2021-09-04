@@ -95,6 +95,10 @@ variable "httpport2" {
 }
 
 variable "httpport3" {
+  default = "8081"
+}
+
+variable "httpport4" {
   default = "0"
 }
 
