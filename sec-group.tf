@@ -13,8 +13,8 @@ resource "aws_security_group" "tool_sg" {
   }
 
   egress {
-    from_port   = var.httpport3
-    to_port     = var.httpport3
+    from_port   = var.httpport4
+    to_port     = var.httpport4
     protocol    = var.egress_protocol
     cidr_blocks = var.sg_cidr_block
   }
