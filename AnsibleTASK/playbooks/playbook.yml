@@ -31,64 +31,29 @@
 - hosts: tag_Name_jenkins_server
   become: True
   tasks:
+    - name: copy jenkinsImage Dockerfile
+      template:
+        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/Dockerfile
+        dest: /home/ansible/Dockerfile
+        owner: root
+        group: root
+        mode: '0644'
 
-    - name: download jenkins.repo
-      get_url:   
-        url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
-        dest: /etc/yum.repos.d/jenkins.repo
+    - name: copy jenkinsImage plugins file
+      template:
+        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/jenkins_plugins.txt
+        dest: /home/ansible/jenkins_plugins.txt
+        owner: root
+        group: root
+        mode: '0644'
 
-    - name: import jenkins key
-      rpm_key: 
-        state: present
-        key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+    - name: build jenkins image
+      ansible.builtin.command:
+        cmd: docker build -t jenkins-blickng:latest .
 
-    - name: install jenkins
-      yum: 
-        name: jenkins
-        state: present
-
-    - name: start & enable jenkins
-      systemd:
-        name: jenkins
-        state: started   
-        enabled: true
-
-    - name: sleep for 30 seconds and continue with play
-      wait_for: timeout=30
-      delegate_to: localhost
-
-    - name: init password jenkin
-      shell: cat /var/lib/jenkins/secrets/initialAdminPassword
-      changed_when: false
-      register: result
-
-    - name: print init password jenkins
-      debug:
-        var: result.stdout
-
-    # - name: copy jenkinsImage Dockerfile
-    #   template:
-    #     src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/Dockerfile
-    #     dest: /home/ansible/Dockerfile
-    #     owner: root
-    #     group: root
-    #     mode: '0644'
-
-    # - name: copy jenkinsImage plugins file
-    #   template:
-    #     src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/jenkins_plugins.txt
-    #     dest: /home/ansible/jenkins_plugins.txt
-    #     owner: root
-    #     group: root
-    #     mode: '0644'
-
-    # - name: build jenkins image
-    #   ansible.builtin.command:
-    #     cmd: docker build -t jenkins-blickng:latest .
-
-    # - name: run jenkins image
-    #   ansible.builtin.command:
-    #     cmd: docker run -d -p 8080:8080 jenkins-blickng
+    - name: run jenkins image
+      ansible.builtin.command:
+        cmd: docker run -d -p 8080:8080 jenkins-blickng
 
     # - name: install jenkins
     #   ansible.builtin.command:
