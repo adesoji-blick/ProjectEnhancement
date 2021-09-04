@@ -18,7 +18,6 @@ wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 python get-pip.py
 
 # Install Boto
-# pip install boto3
 pip install boto
 
 echo downloading repository
