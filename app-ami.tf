@@ -1,12 +1,12 @@
 # Use terraform to query latest generated AMI..
 
-data "aws_ami" "module-ami" {
-  count = 3
+data "aws_ami" "app-ami" {
+  # count = 2
 
   filter {
-    name   = "tag:Name"
-    values = [var.module_ami_filter[count.index]]
-    # values = [var.module_ami_filter]
+    name = "tag:Name"
+    # values = [var.app_ami_filter[count.index]]
+    values = [var.app_ami_filter]
   }
 
   filter {

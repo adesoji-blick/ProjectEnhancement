@@ -6,16 +6,6 @@ variable "profile" {
   default = "default"
 }
 
-variable "resource_ami_filter" {
-  default = "packer-ansible-ami"
-  # default = ["packer-ansible-ami"]
-}
-
-variable "module_ami_filter" {
-  # default = "packer-java-ami"
-  default = ["packer-jenkins-ami", "packer-jenkins2-ami", "packer-jenkins2-ami"]
-}
-
 variable "ssh_key" {
   default = "devOps-Project"
 }
@@ -24,36 +14,68 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "resource_ami_filter" {
+  default = "packer-ansible-ami"
+  # default = ["packer-ansible-ami"]
+}
+
+variable "jenkins_ami_filter" {
+  default = "packer-jenkins-ami"
+  # default = ["packer-jenkins-ami", "packer-jenkins-ami"]
+}
+
+variable "app_ami_filter" {
+  default = "packer-jenkins2-ami"
+  # default = ["packer-jenkins2-ami", "packer-jenkins2-ami"]
+}
+
 variable "resource_count" {
   default = "1"
+}
+
+variable "jenkins_instance_count" {
+  default = "2"
+}
+
+variable "app_instance_count" {
+  default = "2"
 }
 
 variable "resource_tag_name" {
   default = "tool (ansible) server"
 }
 
+variable "jenkins_tag_name" {
+  default = ["jenkins server local", "jenkins server docker"]
+}
+
+variable "app_tag_name" {
+  default = ["dev-app server", "prod-app server"]
+}
+
 variable "resource_environment" {
   default = "project env"
+}
+
+variable "jenkins_environment" {
+  default = "jenkins env"
+  # default = ["jenkins env", "jenkins env"]
+}
+
+variable "app_environment" {
+  default = ["development env", "production env"]
 }
 
 variable "resource_role" {
   default = "devops-user"
 }
 
-variable "module_instance_count" {
-  default = "3"
-}
-
-variable "module_tag_name" {
-  default = ["jenkins server", "dev-app server", "prod-app server"]
-}
-
-variable "module_environment" {
-  default = ["jenkins env", "development env", "production env"]
-}
-
-variable "module_role" {
+variable "jenkins_role" {
   default = "ansible-user"
+}
+
+variable "app_role" {
+  default = "jenkins-user"
 }
 
 variable "sg_name" {
