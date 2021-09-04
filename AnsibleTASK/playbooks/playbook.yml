@@ -53,7 +53,7 @@
 
     - name: run jenkins image
       ansible.builtin.command:
-        cmd: docker run -d -p 8081:8080 jenkins-blickng
+        cmd: docker run -d -p 8080:8080 jenkins-blickng
 
     # - name: install jenkins
     #   ansible.builtin.command:

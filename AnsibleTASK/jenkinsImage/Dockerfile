@@ -1,6 +1,6 @@
 # Jenkins Image with required plugins and no initial setup
 
-FROM avastmick/ansible-jenkins
+FROM jenkins/jenkins:alpine
 LABEL maintainer="adesoji@blick.ng"
 
 # Skip initial setup
