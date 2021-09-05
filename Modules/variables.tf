@@ -2,6 +2,7 @@
 variable "ami_id" {}
 variable "instance_type" {}
 variable "key" {}
+variable "iam_role" {}
 variable "sg_id" {}
 variable "subnet_id" {}
 variable "user_data" {}

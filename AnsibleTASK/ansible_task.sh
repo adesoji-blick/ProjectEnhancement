@@ -4,21 +4,8 @@
 # echo setting ansible user
 # sudo su - ansible
 
-echo ----- installing dependencies pip -----
-# Prepare Ansible dynamic inventory
-sudo amazon-linux-extras install epel
-sudo ansible-galaxy collection install amazon.aws
-wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
-python get-pip.py
-
-# Install Boto
-echo ----- installing dependencies boto -----
-pip install boto
-
 # export environment variables
 echo ----- exporting environment variables -----
-# export AWS_ACCESS_KEY_ID='xxxxxxxx'
-# export AWS_SECRET_ACCESS_KEY='xxxxxxxx'
 export ANSIBLE_HOSTS=/inventory/ec2.py
 export EC2_INI_PATH=/inventory/ec2.ini
 

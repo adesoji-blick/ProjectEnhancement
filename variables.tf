@@ -14,6 +14,10 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "iam_role" {
+  default = "ec2.py-access"
+}
+
 variable "resource_ami_filter" {
   default = "packer-ansible-ami"
   # default = ["packer-ansible-ami"]
@@ -94,11 +98,11 @@ variable "httpport2" {
   default = "8080"
 }
 
-variable "httpport3" {
-  default = "8081"
-}
+# variable "httpport3" {
+#   default = "8081"
+# }
 
-variable "httpport4" {
+variable "httpport3" {
   default = "0"
 }
 
