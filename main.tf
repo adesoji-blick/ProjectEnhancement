@@ -51,11 +51,11 @@ module "App-Nodes" {
   key           = var.ssh_key
   instance_type = var.instance_type
   iam_role      = aws_iam_instance_profile.access_profile.name
-  name          = var.app_tag_name[count.index]
-  environment   = var.app_environment[count.index]
-  role          = var.app_role
-  sg_id         = [aws_security_group.app_sg.id]
-  subnet_id     = aws_subnet.app_vpc_subnet[count.index].id
+  name        = var.app_tag_name[count.index]
+  environment = var.app_environment[count.index]
+  role        = var.app_role
+  sg_id       = [aws_security_group.app_sg.id]
+  subnet_id   = aws_subnet.app_vpc_subnet[count.index].id
   # iam_role  = var.iam_role
   # ami_id        = data.aws_ami.app-ami[count.index].id
 }

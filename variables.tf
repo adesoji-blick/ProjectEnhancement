@@ -1,3 +1,4 @@
+## ec2 instance/module variables
 variable "region" {
   default = "ca-central-1"
 }
@@ -86,6 +87,7 @@ variable "app_role" {
   default = "jenkins-user"
 }
 
+## security group variables
 variable "sg_name" {
   default = "app project"
 }
@@ -101,10 +103,6 @@ variable "httpport" {
 variable "httpport2" {
   default = "8080"
 }
-
-# variable "httpport3" {
-#   default = "8081"
-# }
 
 variable "httpport3" {
   default = "0"
@@ -126,6 +124,7 @@ variable "sg_cidr_block" {
   default = ["0.0.0.0/0"]
 }
 
+## VPC, Subnets, Associations variables
 variable "vpc_name" {
   default = "App_Vpc"
 }
