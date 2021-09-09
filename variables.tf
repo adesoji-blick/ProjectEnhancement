@@ -14,6 +14,10 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "jenkins_instance_type" {
+  default = "t3.large"
+}
+
 variable "iam_role" {
   default = "ec2.py-access"
 }

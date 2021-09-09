@@ -32,7 +32,7 @@ module "Jenkins-Node" {
   user_data     = data.template_file.dependencies_installation.template
   ami_id        = data.aws_ami.jenkins-ami.id
   key           = var.ssh_key
-  instance_type = var.instance_type
+  instance_type = var.jenkins_instance_type
   iam_role      = aws_iam_instance_profile.access_profile.name
   name          = var.jenkins_tag_name[count.index]
   environment   = var.jenkins_environment
