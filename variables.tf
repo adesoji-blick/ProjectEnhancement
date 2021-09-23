@@ -28,6 +28,11 @@ variable "resource_ami_filter" {
   # default = ["packer-ansible-ami"]
 }
 
+variable "monitor_ami_filter" {
+  default = "packer-ansible-ami"
+  # default = ["packer-ansible-ami"]
+}
+
 variable "jenkins_ami_filter" {
   default = "packer-jenkins-ami"
   # default = ["packer-jenkins-ami", "packer-jenkins-ami"]
@@ -42,8 +47,12 @@ variable "resource_count" {
   default = "1"
 }
 
+variable "monitor_count" {
+  default = "1"
+}
+
 variable "jenkins_instance_count" {
-  default = "2"
+  default = "1"
 }
 
 variable "app_instance_count" {
@@ -54,8 +63,12 @@ variable "resource_tag_name" {
   default = "tool (ansible) server"
 }
 
+variable "monitor_tag_name" {
+  default = "monitor server"
+}
+
 variable "jenkins_tag_name" {
-  default = ["jenkins server local", "jenkins server docker"]
+  default = "jenkins server"
 }
 
 variable "app_tag_name" {
@@ -63,6 +76,10 @@ variable "app_tag_name" {
 }
 
 variable "resource_environment" {
+  default = "project env"
+}
+
+variable "monitor_environment" {
   default = "project env"
 }
 
@@ -76,6 +93,10 @@ variable "app_environment" {
 }
 
 variable "resource_role" {
+  default = "devops-user"
+}
+
+variable "monitor_role" {
   default = "devops-user"
 }
 
@@ -96,8 +117,16 @@ variable "sg2_name" {
   default = "tool server"
 }
 
+variable "sg3_name" {
+  default = "monitor server"
+}
+
 variable "httpport" {
   default = "22"
+}
+
+variable "httpport1" {
+  default = "9100"
 }
 
 variable "httpport2" {
@@ -106,6 +135,18 @@ variable "httpport2" {
 
 variable "httpport3" {
   default = "0"
+}
+
+variable "httpport4" {
+  default = "9090"
+}
+
+variable "httpport5" {
+  default = "9093"
+}
+
+variable "httpport6" {
+  default = "3000"
 }
 
 # variable "port_id" {

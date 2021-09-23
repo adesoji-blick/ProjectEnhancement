@@ -4,5 +4,7 @@
 
 [tag_Name_prod_app_server]
 
+[tag_Name_monitor_server]
+
 # [tag_Name_tool__ansible__server]
 # localhost

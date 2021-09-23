@@ -28,38 +28,7 @@
         group: root
         mode: '0644'
 
-- hosts: tag_Name_jenkins_server_docker
-  become: True
-  tasks:
-    - name: copy jenkinsImage Dockerfile
-      template:
-        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/Dockerfile
-        dest: /home/ansible/Dockerfile
-        owner: root
-        group: root
-        mode: '0644'
-
-    - name: copy jenkinsImage plugins file
-      template:
-        src: /home/ansible/ProjectEnhancement/AnsibleTASK/jenkinsImage/jenkins_plugins.txt
-        dest: /home/ansible/jenkins_plugins.txt
-        owner: root
-        group: root
-        mode: '0644'
-
-    - name: build jenkins image
-      ansible.builtin.command:
-        cmd: docker build -t jenkins-blickng:latest .
-
-    - name: run jenkins image
-      ansible.builtin.command:
-        cmd: docker run -d -p 8080:8080 jenkins-blickng
-
-    # - name: install jenkins
-    #   ansible.builtin.command:
-    #     cmd: docker run -d -p 8081:8080 --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false" jenkins/jenkins
-
-- hosts: tag_Name_jenkins_server_local
+- hosts: tag_Name_jenkins_server
   become: True
   tasks:
     - name: download jenkins.repo
@@ -95,6 +64,10 @@
     - name: print init password jenkins
       debug:
         var: result.stdout
+
+- hosts: tag_Name_monitor_server
+  become: True
+  tasks:
         
 
          
